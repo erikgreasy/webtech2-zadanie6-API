@@ -33,6 +33,7 @@ class NamedayController extends Controller {
 
 
     public function store() {
+        $_POST = json_decode(file_get_contents("php://input"),true);
         $errors = [];
 
         if( !isset($_POST['name']) || trim($name = $_POST['name']) == '' ) {
@@ -41,21 +42,21 @@ class NamedayController extends Controller {
         if( !isset($_POST['date']) || trim($date = $_POST['date']) == '' ) {
             $errors['date'] = 'Dátum je povinný';
         }
-        if( !isset($_POST['country']) || trim($country_id = $_POST['country']) == '' ) {
-            $errors['country'] = 'Krajina je povinná';
-        }
+        // if( !isset($_POST['country']) || trim($country_id = $_POST['country']) == '' ) {
+        //     $errors['country'] = 'Krajina je povinná';
+        // }
 
         
         if( !empty($errors) ) {
             return response()->json($errors);
         }
         
-        $country = $this->countryRepository->get($country_id);
+        $country = $this->countryRepository->getByName('sk');
         $day = $this->dayRepository->getByDate($date);
 
-        if( !$country ) {
-            $errors['country'] = 'Krajina neexistuje';
-        }
+        // if( !$country ) {
+        //     $errors['country'] = 'Krajina neexistuje';
+        // }
 
         if( !$day ) {
             $errors['date'] = 'Dátum neexistuje';

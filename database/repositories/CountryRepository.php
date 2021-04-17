@@ -8,6 +8,14 @@ use app\models\Country;
 
 class CountryRepository extends Repository {
 
+    public function all() {
+        $sql = "SELECT * FROM country";
+        $stmt = $this->conn->query($sql);
+        $stmt->setFetchMode( \PDO::FETCH_CLASS, Country::class );
+        $countries = $stmt->fetchAll();
+
+        return $countries;
+    }
 
     public function get($id) {
         $sql = "SELECT * FROM country WHERE id = :id";

@@ -23,7 +23,15 @@ Router::group(['prefix' => ROUTING_PREFIX . '/api', 'defaultParameterRegex' => '
     Router::get('/holidays/{country}', 'HolidayController@index');
 
     Router::get('/memorabledays', 'MemorabledayController@index');
+    Router::get('/countries', 'CountryController@index');
 
+
+    Router::error(function(Request $request, \Exception $exception) {
+        return response()->json([
+            'message' => "Route not found"
+        ]);
+        
+    });
 });
 
 Router::get(ROUTING_PREFIX . '/', function() {
@@ -31,6 +39,8 @@ Router::get(ROUTING_PREFIX . '/', function() {
 });
 
 Router::error(function(Request $request, \Exception $exception) {
+    return view('home');
+
     return response()->json([
         'message' => "Route not found"
     ]);
