@@ -15,12 +15,12 @@ Router::setDefaultNamespace('app\controllers');
 
 Router::group(['prefix' => ROUTING_PREFIX . '/api', 'defaultParameterRegex' => '[\w\-\%]+'], function () {
     
-    Router::get('/namedays/{country}/{date}', 'NamedayController@show');
+    Router::get('/namedays/{country_name}/{day_date}', 'NamedayController@show');
     Router::post( '/namedays', 'NamedayController@store' );
 
-    Router::get('/days/{country}/{name}', 'DayController@show');
+    Router::get('/days/{country_name}/{name}', 'DayController@show');
 
-    Router::get('/holidays/{country}', 'HolidayController@index');
+    Router::get('/holidays/{country_name}', 'HolidayController@index');
 
     Router::get('/memorabledays', 'MemorabledayController@index');
     Router::get('/countries', 'CountryController@index');

@@ -35,7 +35,11 @@ export default {
                 date: date,
             })
                 .then(res => {
-                    console.log(res)
+                    if(res.data.name) {
+                        alert('Uspesne pridany')
+                    } else {
+                        alert('Nespravne parametre')
+                    }
                 })
         }
     }
