@@ -19,6 +19,11 @@
                     </router-link>
                 </li>
                 <li class="nav-item">
+                    <router-link :to="{name: 'Memorabledays'}" class="nav-link">
+                        Pamätné dni
+                    </router-link>
+                </li>
+                <li class="nav-item">
                     <router-link :to="{name: 'AddNameday'}" class="nav-link">
                         Pridať meniny
                     </router-link>
