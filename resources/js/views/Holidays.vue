@@ -21,8 +21,6 @@
 
 <script>
 
-import axios from 'axios'
-
 export default {
     data() {
         return {
@@ -38,7 +36,7 @@ export default {
 
     methods: {
         getCountries() {
-            axios.get('https://wt104.gei.stuba.sk/zadanie6/api/countries')
+            this.$http.get(this.$baseurl + '/api/countries')
                 .then(res => {
                         console.log(res)
                         this.countries = res.data
@@ -46,7 +44,7 @@ export default {
                 })
         },
         getHolidays() {
-            axios.get('https://wt104.gei.stuba.sk/zadanie6/api/holidays/' + this.fields.country)
+            this.$http.get(this.$baseurl + '/api/holidays/' + this.fields.country)
                 .then(res => {
                     if(res.data.length) {
                         console.log(res)

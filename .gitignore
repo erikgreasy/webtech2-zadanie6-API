@@ -4,3 +4,4 @@ config.php
 dist
 meniny.xml
 loader.php
+config.js

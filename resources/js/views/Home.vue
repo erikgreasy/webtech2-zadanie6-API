@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
     data() {
@@ -70,7 +69,7 @@ export default {
 
     methods: {
         getCountries() {
-            axios.get('https://wt104.gei.stuba.sk/zadanie6/api/countries')
+            this.$http.get(this.$baseurl + '/api/countries')
                 .then(res => {
                     this.countries = res.data
                 })
@@ -78,13 +77,13 @@ export default {
         getNamedays() {
             var date = (new Date( this.fields.date ).getMonth() + 1).toString().padStart(2, '0') + (new Date( this.fields.date ).getDate()).toString().padStart(2, '0')
 
-            axios.get('https://wt104.gei.stuba.sk/zadanie6/api/namedays/'+ this.fields.country +'/' + date)
+            this.$http.get(this.$baseurl + '/api/namedays/'+ this.fields.country +'/' + date)
                 .then(res => {
                     this.namedays = res.data
                 })
         },
         getDays() {
-            axios.get('https://wt104.gei.stuba.sk/zadanie6/api/days/'+ this.fields.country + '/' + this.fields.name)
+            this.$http.get(this.$baseurl + '/api/days/'+ this.fields.country + '/' + this.fields.name)
                 .then(res => {
                     if( res.data.date ) {
                         var date = res.data.date.substring(0, 2) + '.' + res.data.date.substring(2, 4) + '.'

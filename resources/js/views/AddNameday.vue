@@ -12,12 +12,10 @@
             </div>
             <button class="btn btn-info btn-block">Pidaj</button>
         </form>
-        {{name}}
     </main>
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
     data() {
@@ -31,7 +29,7 @@ export default {
         addNameday() {
             var date = (new Date( this.date ).getMonth() + 1).toString().padStart(2, '0') + (new Date( this.date ).getDate()).toString().padStart(2, '0')
 
-            axios.post('https://wt104.gei.stuba.sk/zadanie6/api/namedays', {
+            this.$http.post(this.$baseurl + '/api/namedays', {
                 
                 name: this.name,
                 date: date,
