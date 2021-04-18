@@ -28,6 +28,11 @@
                         Pridať meniny
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <a href="https://documenter.getpostman.com/view/10811153/TzJsfdF8#723e05bc-cb9a-42d2-97cb-8f7bbbf635c5" class="nav-link" target="_blank">
+                        API dokumentácia
+                    </a>
+                </li>
             </ul>
             </div>
         </nav>
