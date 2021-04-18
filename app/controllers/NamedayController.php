@@ -33,7 +33,10 @@ class NamedayController extends Controller {
 
 
     public function store() {
-        $_POST = json_decode(file_get_contents("php://input"),true);
+        // For axios
+        if(empty($_POST)) {
+            $_POST = json_decode(file_get_contents("php://input"),true);
+        }
         $errors = [];
 
         if( !isset($_POST['name']) || trim($name = $_POST['name']) == '' ) {
