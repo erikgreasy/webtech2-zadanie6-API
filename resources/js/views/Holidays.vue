@@ -13,7 +13,7 @@
             <button class="btn btn-info btn-block">Vyhľadaj</button>
         </form>
         <ul class="my-4">
-            <li v-for="holiday in holidays" :key="holiday.id">{{ holiday.day.date.substring(0,2) + '.' + holiday.day.date.substring(2,4) + ' ' + holiday.name + '.' }}</li>
+            <li v-for="holiday in holidays" :key="holiday.id">{{ holiday.day.date.substring(2,4) + '.' + holiday.day.date.substring(0,2) + ' ' + holiday.name + '.' }}</li>
         </ul>
         <h4 class="my-4">{{ message }}</h4>
     </main>  

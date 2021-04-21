@@ -86,7 +86,7 @@ export default {
             this.$http.get(this.$baseurl + '/api/days/'+ this.fields.country + '/' + this.fields.name)
                 .then(res => {
                     if( res.data.date ) {
-                        var date = res.data.date.substring(0, 2) + '.' + res.data.date.substring(2, 4) + '.'
+                        var date = res.data.date.substring(2, 4) + '.' + res.data.date.substring(0, 2) + '.'
                         this.date = date
                     } else {
                         this.date = 'Nenajdene'
